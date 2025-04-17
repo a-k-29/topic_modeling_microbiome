@@ -13,4 +13,4 @@ This repository contains a set of scripts and functions used to apply topic mode
   * PCA
   * PCoA
 
-This evaluation was built on two steps: 1) An **ecological evaluation** using Random Forest (RF_evaluation.py), in which we assessed the extent to which the specified parameters influenced the predictability of various ecological variables — or, in other words, the preservation of ecological information. 2) A **functional evaluation** (functional_evaluation.py), in which we assessed how much functional information was retained in the topics or PCA component × OTU matrices compared to the full microbiome.
+This evaluation was built on two steps: 1) An **ecological evaluation** using Random Forest (ecological_evaluation.py), in which we assessed the extent to which the specified parameters influenced the predictability of various ecological variables — or, in other words, the preservation of ecological information. 2) A **functional evaluation** (functional_evaluation.py), in which we assessed how much functional information was retained in the topics or PCA component × OTU matrices compared to the full microbiome.
