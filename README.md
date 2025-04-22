@@ -1,7 +1,7 @@
 # topic_modeling_on_microbiome_data
 ## Repository for storing Python scripts for evaluating and executing topic modeling on high dimensional microbiome data.
 
-This repository contains a set of scripts and functions used to apply topic modeling methods—Latent Dirichlet Allocation (LDA) and Non-negative Matrix Factorization (NNMF)—in comparison to the dimensionality reduction techniques PCA and PCoA on high-dimensional 16S rRNA amplicon microbiome data. We evaluated the impact of 
+This repository contains a set of scripts and functions used to apply topic modeling methods—Latent Dirichlet Allocation (LDA) and Non-negative Matrix Factorization (NNMF)—in comparison to the dimensionality reduction techniques PCA and PCoA on high-dimensional 16S rRNA amplicon data (topic_generation.py). We evaluated the impact of 
 * data preprocessing
   * centered-log ratio transformation (clr)
   * fractionated feature counts (fractions)
