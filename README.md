@@ -45,13 +45,13 @@ Run topic_generation.py after updating the file paths:
 input_data = 'path/to/your/data'
 input_data_clr = 'path/to/your/data_clr'
 input_metadata = 'path/to/your/metadata'
-output_trained_TM_models = 'path/to/your/output/location_TM_models'
-output_tm_components = 'path/to/your/output/location_TM_components'
-output_tm_topics = 'path/to/your/output/location_TM_models'
-output_tm_metrics = 'path/to/your/output/location_TM_models'
-output_rf_model = 'path/to/your/output/location_TM_models'
-output_rf_metrics = 'path/to/your/output/location_TM_models'
-output_clusters = 'path/to/your/output/location_TM_models'
+output_trained_TM_models = 'path/to/your/output/output_trained_TM_models'
+output_tm_components = 'path/to/your/output/output_tm_components'
+output_tm_topics = 'path/to/your/output/output_tm_topics'
+output_tm_metrics = 'path/to/your/output/output_tm_metrics'
+output_rf_model = 'path/to/your/output/output_rf_model'
+output_rf_metrics = 'path/to/your/output/output_rf_metrics'
+output_clusters = 'path/to/your/output/output_clusters'
 ```
 2. Ecological Evaluation
 * Use ecological_evaluation.py to run Random Forest classification/regression against ecological metadata variables.
