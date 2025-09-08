@@ -5,20 +5,25 @@
 # Load needed functions
 from functions import *
 
-# Defining variables according to the main function
-dimensionality = 200
+# Defining paths for input and output data
+input_data_dir = 'path/to/your/data/'
+input_data = input_data_dir + 'example_otu_data.csv'
+input_data_clr = input_data_dir + 'example_otu_data_clr.csv'
+input_metadata = input_data_dir + 'example_metadata.csv'
+output_rf_model = 'path/to/your/data/'
+output_rf_metrics = 'path/to/your/data/'
+
+# Paths to directory with topic and PCA/PCoA csv files
+topic_path = 'path/to/your/data/'
+cluster_path = 'path/to/your/data/'
+
+# Defining variables according to the main function (functions.py)
+dimensionality = 10
 rf_method = 'regression'
 input_rf_target_variable = 'salinity'
-input_data = 'path/to/your/data'
-input_data_clr = 'path/to/your/data_clr'
-input_metadata = 'path/to/your/metadata'
-topic_path = 'path/to/your/topic_data_location/'
-cluster_path = 'path/to/your/pca_pcoa_data_location/'
-output_rf_model = 'path/to/your/output/location_RF_models/'
-output_rf_metrics = 'path/to/your/output/location_RF_models/'
 
 # Run the Random Forest evaluation
-for i in range(1, dimensionality, 10):
+for i in range(2, dimensionality, 10):
     print("This is k=", i)
     # No preprocession
     main_function_random_forest(i, 'none', 'lda', 'none', topic_path, cluster_path, rf_method, input_rf_target_variable,
@@ -27,8 +32,6 @@ for i in range(1, dimensionality, 10):
                                 input_data, input_data_clr,input_metadata, output_rf_model, output_rf_metrics)
     main_function_random_forest(i, 'none', 'none', 'pca', topic_path, cluster_path, rf_method, input_rf_target_variable,
                                 input_data, input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
-    main_function_random_forest(i, 'none', 'none', 'pcoa', topic_path, cluster_path, rf_method, input_rf_target_variable,
-                                input_data, input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
     # Preprocession: clr
     main_function_random_forest(i, 'clr', 'lda', 'none', topic_path, cluster_path, rf_method, input_rf_target_variable,
                                 input_data, input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
@@ -36,8 +39,6 @@ for i in range(1, dimensionality, 10):
                                 input_data,input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
     main_function_random_forest(i, 'clr', 'none', 'pca', topic_path, cluster_path, rf_method, input_rf_target_variable,
                                 input_data,input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
-    main_function_random_forest(i, 'clr', 'none', 'pcoa', topic_path, cluster_path, rf_method, input_rf_target_variable,
-                                input_data, input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
     # Preprocession: fractions
     main_function_random_forest(i, 'fractions', 'lda', 'none', topic_path, cluster_path, rf_method, input_rf_target_variable,
                                 input_data,input_data_clr, input_metadata, output_rf_model, output_rf_metrics)
