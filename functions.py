@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 from composition_stats import clr
 import _pickle as cPickle
 from sklearn.decomposition import NMF, PCA
@@ -249,7 +250,7 @@ def main_function_random_forest(dimensionality, preprocessing_method, topic_mode
     df_clr.index = df.index
     # Load metadata and transform date column
     df_metadata = pd.read_csv(input_metadata, sep=',', index_col=0, header=0)
-    df_metadata['date'] = pd.to_datetime(df_metadata['date'], format='%d/%m/%Y')
+    df_metadata['date'] = pd.to_datetime(df_metadata['date'], format = 'mixed') # or adjust according to your used format, eg. format ='%d/%m/%Y'
     # Create lists with sample names in microbiome data and metadata
     n_ids = df.index.values.tolist()
     n_ids_metadata = df_metadata.index.values.tolist()
@@ -272,10 +273,6 @@ def main_function_random_forest(dimensionality, preprocessing_method, topic_mode
         data_for_rf.index = df.index
     elif preprocessing_method == 'clr' and topic_modeling_method == 'none' and clustering_method == 'pca':
         data_for_rf = pd.read_csv(cluster_path + 'pca_dim_' + str(dimensionality) + '_topic_model_none_prepro_clr_clusters.csv', 
-                                  sep=',', index_col=0, header=0)
-        data_for_rf.index = df.index
-    elif preprocessing_method == 'clr' and topic_modeling_method == 'none' and clustering_method == 'pcoa':
-        data_for_rf = pd.read_csv(cluster_path + 'pcoa_dim_' + str(dimensionality) + '_topic_model_none_prepro_clr_clusters.csv', 
                                   sep=',', index_col=0, header=0)
         data_for_rf.index = df.index
     elif preprocessing_method == 'clr' and topic_modeling_method == 'none' and clustering_method == 'none':
@@ -313,10 +310,6 @@ def main_function_random_forest(dimensionality, preprocessing_method, topic_mode
         data_for_rf.index = df.index
     elif preprocessing_method == 'none' and topic_modeling_method == 'none' and clustering_method == 'pca':
         data_for_rf = pd.read_csv(cluster_path + 'pca_dim_' + str(dimensionality) + '_topic_model_none_prepro_none_clusters.csv', 
-                                  sep=',', index_col=0, header=0)
-        data_for_rf.index = df.index
-    elif preprocessing_method == 'none' and topic_modeling_method == 'none' and clustering_method == 'pcoa':
-        data_for_rf = pd.read_csv(cluster_path + 'pcoa_dim_' + str(dimensionality) + '_topic_model_none_prepro_none_clusters.csv', 
                                   sep=',', index_col=0, header=0)
         data_for_rf.index = df.index
     # Unprocessed evaluation
@@ -443,4 +436,5 @@ def parse_filename(filename):
     tm = parts[0]
     dim = int(parts[2])
     prepro = parts[7]
+
     return tm, dim, prepro
