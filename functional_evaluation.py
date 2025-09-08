@@ -20,7 +20,7 @@ results = []
 # Load the FAPROTAX OTU x Function matrix
 otu_function_matrix = pd.read_csv(input_data_dir + 'example_otu_function_matrix.csv', index_col=0, header=0)
 # Load full microbiome data and find functional annotated OTUs (as an extra savety step)
-otus_16 = pd.read_csv(input_data_dir + 'path/example_otu_data.csv', header=0, sep=',', index_col=0).T
+otus_16 = pd.read_csv(input_data_dir + 'example_otu_data.csv', header=0, sep=',', index_col=0).T
 n_ids = otu_function_matrix.index.values.tolist()
 n_ids_16 = otus_16.index.values.tolist()
 # Identify the common sample ids of microbiome data and function matrix
@@ -107,3 +107,4 @@ wilcoxon_df['bonferroni_corrected_p'] = wilcoxon_df['p_value'] * len(wilcoxon_df
 wilcoxon_df['significant'] = wilcoxon_df['bonferroni_corrected_p'] < bonferroni_alpha
 # Save the results
 wilcoxon_df.to_csv(significance_output + 'functional_evaluation_test_significance.csv', index=False))
+
