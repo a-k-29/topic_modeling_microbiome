@@ -56,6 +56,7 @@ output_clusters = 'path/to/your/output/output_clusters'
 2. Ecological Evaluation
 * Use ecological_evaluation.py to run Random Forest classification/regression against ecological metadata variables.
 3. Functional Evaluation
+⚠️ If your functional dataset contains non-binary categories, you may need to adapt or remove them.  
 
 ## Outputs 
 * Topics → CSV with topic loadings per sample
@@ -64,3 +65,17 @@ output_clusters = 'path/to/your/output/output_clusters'
 * Metrics → CSV with model scores (LDA perplexity/score, RF metrics).
 * Random Forest models → Pickled model objects
 * Clusters → CSV with PCA/PCoA projections per sample
+
+## Example Data
+To facilitate testing and demonstration of the scripts, the repository includes several example datasets.
+⚠️ All example datasets are synthetic and randomly generated for demonstration purposes only.
+These datasets include: 
+* `example_otu_data.csv` — synthetic OTU count table (samples × OTUs)  
+* `example_otu_data_clr.csv` — CLR-transformed version of the OTU table  
+* `example_metadata.csv` — example environmental metadata (salinity, temperature, …)  
+* `example_otu_function_matrix.csv` — example OTU × function annotation matrix  
+
+These files allow you to run the full pipeline without providing your own data.  
+⚠️ Please adjust the file paths in the scripts accordingly if you want to test with these examples.
+⚠️ Be cautious with **date formats** in the metadata (`example_metadata.csv`):  
+  ensure consistent formatting (e.g. `YYYY-MM-DD`) to avoid parsing issues during evaluation.
