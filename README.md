@@ -54,11 +54,10 @@ output_rf_metrics = 'path/to/your/output/location_TM_models'
 output_clusters = 'path/to/your/output/location_TM_models'
 ```
 2. Ecological Evaluation
-Use ecological_evaluation.py to run Random Forest classification/regression against ecological metadata variables.
+* Use ecological_evaluation.py to run Random Forest classification/regression against ecological metadata variables.
 3. Functional Evaluation
 
-## Outputs
-* TM Models 
+## Outputs 
 * Topics → CSV with topic loadings per sample
 * Topic modeling components → CSV with OTU loadings per topic
 * TM models → Pickled model object
