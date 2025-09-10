@@ -343,7 +343,7 @@ def main_function_random_forest(dimensionality, preprocessing_method, topic_mode
         y_test = df_metadata_test[input_rf_target_variable].dropna()
 
         # Building the RF model
-        rf_model = RandomForestClassifier(random_state=44)
+        rf_model = RandomForestClassifier(random_state=42)
 
         # Fit the models to training data
         rf_model.fit(X_train, y_train)
@@ -387,7 +387,7 @@ def main_function_random_forest(dimensionality, preprocessing_method, topic_mode
         y_test = df_metadata_test[input_rf_target_variable].astype(int)
 
         # Building the Random Forest Regressor
-        rf_model = RandomForestRegressor() #random_state=0)
+        rf_model = RandomForestRegressor(random_state=42)
         # Fit the model to training data
         rf_model.fit(X_train, y_train)
 
@@ -438,3 +438,4 @@ def parse_filename(filename):
     prepro = parts[7]
 
     return tm, dim, prepro
+
